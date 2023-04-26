@@ -1,6 +1,7 @@
 CREATE TABLE booking_customers (
     booking_id  NUMBER NOT NULL,
-    customer_id NUMBER NOT NULL
+    customer_id NUMBER NOT NULL,
+    cost        NUMBER
 )
 LOGGING;
 
@@ -14,7 +15,8 @@ CREATE TABLE bookings (
     location_id  NUMBER NOT NULL,
     booking_date DATE,
     num_players  NUMBER,
-    total_cost   NUMBER
+    total_cost   NUMBER,
+    tip_received NUMBER
 )
 LOGGING;
 
@@ -22,7 +24,8 @@ ALTER TABLE bookings ADD CONSTRAINT bookings_pk PRIMARY KEY ( booking_id );
 
 CREATE TABLE customers (
     customer_id NUMBER NOT NULL,
-    name        VARCHAR2(100)
+    name        VARCHAR2(100),
+    sum_cost    NUMBER
 )
 LOGGING;
 
@@ -31,7 +34,8 @@ ALTER TABLE customers ADD CONSTRAINT customer_pk PRIMARY KEY ( customer_id );
 CREATE TABLE employees (
     employee_id NUMBER NOT NULL,
     name        VARCHAR2(100),
-    role        VARCHAR2(100)
+    role        VARCHAR2(100),
+    sum_tip     NUMBER
 )
 LOGGING;
 
