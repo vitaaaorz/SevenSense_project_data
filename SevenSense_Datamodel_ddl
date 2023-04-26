@@ -41,15 +41,6 @@ LOGGING;
 
 ALTER TABLE employees ADD CONSTRAINT employee_pk PRIMARY KEY ( employee_id );
 
-CREATE TABLE game_genres (
-    game_id  NUMBER NOT NULL,
-    genre_id NUMBER NOT NULL
-)
-LOGGING;
-
-ALTER TABLE game_genres ADD CONSTRAINT game_genres_pk PRIMARY KEY ( game_id,
-                                                                    genre_id );
-
 CREATE TABLE games (
     game_id     NUMBER NOT NULL,
     name        VARCHAR2(100),
@@ -101,16 +92,6 @@ ALTER TABLE bookings
 ALTER TABLE bookings
     ADD CONSTRAINT bookings_locations_fk FOREIGN KEY ( location_id )
         REFERENCES locations ( location_id )
-    NOT DEFERRABLE;
-
-ALTER TABLE game_genres
-    ADD CONSTRAINT game_genres_games_fk FOREIGN KEY ( game_id )
-        REFERENCES games ( game_id )
-    NOT DEFERRABLE;
-
-ALTER TABLE game_genres
-    ADD CONSTRAINT game_genres_genre_fk FOREIGN KEY ( genre_id )
-        REFERENCES genre ( genre_id )
     NOT DEFERRABLE;
 
 ALTER TABLE games
