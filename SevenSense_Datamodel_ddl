@@ -42,12 +42,13 @@ LOGGING;
 ALTER TABLE employees ADD CONSTRAINT employee_pk PRIMARY KEY ( employee_id );
 
 CREATE TABLE games (
-    game_id     NUMBER NOT NULL,
-    name        VARCHAR2(100),
-    description VARCHAR2(100),
-    min_players NUMBER,
-    max_players NUMBER,
-    genre_id    NUMBER NOT NULL
+    game_id         NUMBER NOT NULL,
+    name            VARCHAR2(100),
+    description     VARCHAR2(100),
+    min_players     NUMBER,
+    max_players     NUMBER,
+    cost_per_player NUMBER,
+    genre_id        NUMBER NOT NULL
 )
 LOGGING;
 
